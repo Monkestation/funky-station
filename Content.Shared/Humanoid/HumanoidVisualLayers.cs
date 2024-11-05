@@ -25,6 +25,8 @@ namespace Content.Shared.Humanoid
         Wings, // For IPC wings porting from SimpleStation
         Hair,
         FacialHair,
+        UndergarmentTop,
+        UndergarmentBottom,
         Chest,
         Head,
         Snout,
@@ -34,7 +36,6 @@ namespace Content.Shared.Humanoid
         RArm,
         LArm,
         RHand,
-
         LHand,
         RLeg,
         LLeg,
