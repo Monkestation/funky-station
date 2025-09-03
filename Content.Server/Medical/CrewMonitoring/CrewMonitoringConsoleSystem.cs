@@ -29,6 +29,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -36,6 +37,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
+        SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitorEntityTrackingMessage>(OnTracking);
     }
 
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
@@ -86,5 +88,17 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         // Update all sensors info
         var allSensors = component.ConnectedSensors.Values.ToList();
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
+    }
+
+    private void OnTracking(EntityUid uid,
+        CrewMonitoringConsoleComponent component,
+        CrewMonitorEntityTrackingMessage message)
+    {
+        var transformComponent = EntityManager.GetComponent<TransformComponent>(message.Actor);
+        var trackedEntity = EntityManager.GetEntity(message.TrackedEntity);
+        var newTransformComponent = EntityManager.GetComponent<TransformComponent>(trackedEntity);
+
+        _transform.SetCoordinates(message.Actor, newTransformComponent.Coordinates);
+        _transform.AttachToGridOrMap(message.Actor, transformComponent);
     }
 }

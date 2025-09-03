@@ -61,6 +61,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     private bool _tryToScrollToListFocus;
     private Texture? _blipTexture;
 
+    public event Action<NetEntity>? OnEntityTracked;
+
     public CrewMonitoringWindow()
     {
         RobustXamlLoader.Load(this);
@@ -109,7 +111,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         NoServerLabel.Visible = false;
 
         // Order sensor data
-        var orderedSensors = sensors.OrderBy(n => n.Name).OrderBy(j => j.Job);
+        var orderedSensors = sensors.OrderBy(n => n.Name).ThenBy(j => j.Job);
         var assignedSensors = new HashSet<SuitSensorStatus>();
         var departments = sensors.SelectMany(d => d.JobDepartments).Distinct().OrderBy(n => n);
 
@@ -134,16 +136,16 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 SensorsTable.AddChild(spacer);
             }
 
-            var deparmentLabel = new RichTextLabel()
+            var departmentLabel = new RichTextLabel()
             {
                 Margin = new Thickness(10, 0),
                 HorizontalExpand = true,
             };
 
-            deparmentLabel.SetMessage(department);
-            deparmentLabel.StyleClasses.Add(StyleNano.StyleClassTooltipActionDescription);
+            departmentLabel.SetMessage(department);
+            departmentLabel.StyleClasses.Add(StyleNano.StyleClassTooltipActionDescription);
 
-            SensorsTable.AddChild(deparmentLabel);
+            SensorsTable.AddChild(departmentLabel);
 
             PopulateDepartmentList(departmentSensors);
         }
@@ -340,6 +342,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     else
                     {
                         _trackedEntity = sensor.SuitSensorUid;
+                        OnEntityTracked?.Invoke(_trackedEntity.Value);
                         NavMap.CenterToCoordinates(coordinates.Value);
                     }
 
