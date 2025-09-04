@@ -492,6 +492,7 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+  - type: CrewMonitoringConsoleTeleport
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
