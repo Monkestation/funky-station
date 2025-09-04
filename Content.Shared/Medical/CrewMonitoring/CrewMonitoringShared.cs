@@ -29,3 +29,14 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         Sensors = sensors;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class CrewMonitorEntityTrackingMessage : BoundUserInterfaceMessage
+{
+    public readonly NetEntity TrackedEntity;
+
+    public CrewMonitorEntityTrackingMessage(NetEntity trackedEntity)
+    {
+        TrackedEntity = trackedEntity;
+    }
+}

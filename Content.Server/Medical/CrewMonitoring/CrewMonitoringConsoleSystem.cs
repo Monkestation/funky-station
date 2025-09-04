@@ -21,6 +21,7 @@ using Content.Server.PowerCell;
 using Content.Shared.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
+using Content.Shared.Silicons.StationAi;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Medical.CrewMonitoring;
@@ -29,6 +30,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedStationAiSystem _aiSystem = default!;
 
     public override void Initialize()
     {
@@ -36,6 +39,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
+        SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitorEntityTrackingMessage>(OnTracking);
     }
 
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
@@ -86,5 +90,29 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         // Update all sensors info
         var allSensors = component.ConnectedSensors.Values.ToList();
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
+    }
+
+    private void OnTracking(EntityUid uid,
+        CrewMonitoringConsoleComponent component,
+        CrewMonitorEntityTrackingMessage message)
+    {
+        if (!EntityManager.HasComponent<CrewMonitoringConsoleTeleportComponent>(message.Actor))
+            return;
+        if (!component.ConnectedSensors.Values.Any(sensor =>
+                sensor.Coordinates != null && sensor.SuitSensorUid == message.TrackedEntity))
+            return;
+        var trackedEntity = EntityManager.GetEntity(message.TrackedEntity);
+        if (_aiSystem.TryGetCore(message.Actor, out var core) && core.Comp?.RemoteEntity != null)
+        {
+            if (core.Comp?.Remote != true)
+            {
+                return;
+            }
+            _transform.PlaceNextTo(core.Comp.RemoteEntity.Value, trackedEntity);
+        }
+        else
+        {
+            _transform.PlaceNextTo(message.Actor, trackedEntity);
+        }
     }
 }

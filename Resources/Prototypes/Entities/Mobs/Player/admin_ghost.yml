@@ -140,6 +140,7 @@
     followEntity: true
   - type: CargoOrderConsole
   - type: CrewMonitoringConsole
+  - type: CrewMonitoringConsoleTeleport
   - type: GeneralStationRecordConsole
     canDeleteEntries: true
   - type: DeviceNetwork
