@@ -249,11 +249,26 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             {
                 if (_markingManager.TryGetMarking(marking, out var markingPrototype))
                 {
+                    if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentSocks)
+                    {
+                        if (IsHidden(humanoid, HumanoidVisualLayers.LLeg) ||
+                            IsHidden(humanoid, HumanoidVisualLayers.RLeg) ||
+                            IsHidden(humanoid, HumanoidVisualLayers.LFoot) ||
+                            IsHidden(humanoid, HumanoidVisualLayers.RFoot))
+                        {
+                            continue;
+                        }
+                    }
+
                     ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, humanoid, sprite);
                     if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentTop)
+                    {
                         applyUndergarmentTop = false;
+                    }
                     else if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentBottom)
+                    {
                         applyUndergarmentBottom = false;
+                    }
                 }
             }
         }
