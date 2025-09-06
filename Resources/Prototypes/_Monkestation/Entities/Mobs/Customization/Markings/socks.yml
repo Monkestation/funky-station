@@ -1,0 +1,12 @@
+- type: marking
+  id: UndergarmentSocksWshort
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: white_short
