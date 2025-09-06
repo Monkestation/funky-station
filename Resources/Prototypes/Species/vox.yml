@@ -44,6 +44,7 @@
     FacialHair: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentSocks: MobHumanoidAnyMarking
     Chest: MobVoxTorso
     Eyes: MobVoxEyes
     LArm: MobVoxLArm
@@ -88,6 +89,9 @@
       points: 1
       required: false
     UndergarmentBottom:
+      points: 1
+      required: false
+    UndergarmentSocks:
       points: 1
       required: false
     Chest:

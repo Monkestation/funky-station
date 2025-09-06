@@ -32,6 +32,7 @@
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentSocks: MobHumanoidAnyMarking
     Chest: MobReptilianTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -74,6 +75,9 @@
       points: 1
       required: false
     UndergarmentBottom:
+      points: 1
+      required: false
+    UndergarmentSocks:
       points: 1
       required: false
     Chest:
