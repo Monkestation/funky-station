@@ -25,6 +25,9 @@ namespace Content.Shared.Humanoid.Markings
         Eyes, // DeltaV - Add Eyes Category for IPCs
         Snout,
         Chest,
+        UndergarmentTop,
+        UndergarmentBottom,
+        UndergarmentSocks,
         Arms,
         Legs,
         Wings, // For IPC wings porting from SimpleStation
@@ -47,6 +50,9 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.Eyes => MarkingCategories.Eyes, // DeltaV - Add Eyes Category for IPCs
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
+                HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
+                HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
+                HumanoidVisualLayers.UndergarmentSocks => MarkingCategories.UndergarmentSocks,
                 HumanoidVisualLayers.RArm => MarkingCategories.Arms,
                 HumanoidVisualLayers.LArm => MarkingCategories.Arms,
                 HumanoidVisualLayers.RHand => MarkingCategories.Arms,
