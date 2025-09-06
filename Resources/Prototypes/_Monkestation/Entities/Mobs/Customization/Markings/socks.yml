@@ -10,3 +10,133 @@
   sprites:
   - sprite: _Monkestation/Mobs/Customization/socks.rsi
     state: white_short
+
+- type: marking
+  id: UndergarmentSocksWnormal
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: white_normal
+
+- type: marking
+  id: UndergarmentSocksWknee
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: white_knee
+
+- type: marking
+  id: UndergarmentSocksWthigh
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: white_thigh
+
+- type: marking
+  id: UndergarmentSocksWpantyhose
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: white_pantyhose
+
+- type: marking
+  id: UndergarmentSocksTshort
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: thin_short
+
+- type: marking
+  id: UndergarmentSocksTnormal
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: thin_normal
+
+- type: marking
+  id: UndergarmentSocksTknee
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: thin_knee
+
+- type: marking
+  id: UndergarmentSocksTthigh
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: thin_thigh
+
+- type: marking
+  id: UndergarmentSocksTpantyhose
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: thin_pantyhose
+
+- type: marking
+  id: UndergarmentSocksThocks
+  bodyPart: UndergarmentSocks
+  markingCategory: UndergarmentSocks
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Monkestation/Mobs/Customization/socks.rsi
+    state: thocks

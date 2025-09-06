@@ -1,1 +1,23 @@
 marking-UndergarmentSocksWshort = White Short Socks
+marking-UndergarmentSocksWnormal = White Normal Socks
+marking-UndergarmentSocksWknee = White Knee High Socks
+marking-UndergarmentSocksWthigh = White Thigh High Socks
+marking-UndergarmentSocksWpantyhose = White Pantyhose
+marking-UndergarmentSocksTshort = Thin Short Socks
+marking-UndergarmentSocksTnormal = Thin Normal Socks
+marking-UndergarmentSocksTknee = Thin Knee High Socks
+marking-UndergarmentSocksTthigh = Thin Thigh High Socks
+marking-UndergarmentSocksTpantyhose = Thin Pantyhose
+marking-UndergarmentSocksThocks = Thocks
+
+marking-UndergarmentSocksWshort-white_short = White Short Socks
+marking-UndergarmentSocksWnormal-white_normal = White Normal Socks
+marking-UndergarmentSocksWknee-white_knee = White Knee High Socks
+marking-UndergarmentSocksWthigh-white_thigh = White Thigh High Socks
+marking-UndergarmentSocksWpantyhose-white_pantyhose = White Pantyhose
+marking-UndergarmentSocksTshort-thin_short = Thin Short Socks
+marking-UndergarmentSocksTnormal-thin_normal = Thin Normal Socks
+marking-UndergarmentSocksTknee-thin_knee = Thin Knee High Socks
+marking-UndergarmentSocksTthigh-thin_thigh = Thin Thigh High Socks
+marking-UndergarmentSocksTpantyhose-thin_pantyhose = Thin Pantyhose
+marking-UndergarmentSocksThocks-thocks = Thocks
